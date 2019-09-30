@@ -93,7 +93,6 @@ function clickEvent() {
             numberStore1 = numberInput;
             numberInput = 0;
             operatorStore = keypressed;
-            display = operatorStore;
 
             break;
 
@@ -123,14 +122,14 @@ function clickEvent() {
 
 function evaluate() {
 
-    numberStore2 = numberInput;
+    numberStore2 = numberInput.trim();
 
-    if (numberInput = '.') {
+    if (numberStore2 == '.') {
         display = "Josh made error"
     }
 
 
-    else if (operatorStore == "+") {
+      else if (operatorStore == "+") {
 
 
         sum = Number(numberStore1) + Number(numberStore2);
