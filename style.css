@@ -2,12 +2,27 @@ html, body {
 
     height: auto;
     width:60%;
+    
 
 }
+
 
 .container {
     height:200px
 }
+
+/* .calculator {
+    position: relative;
+    margin: 8em auto;
+    padding: 1em 0;
+    display: block-inline;
+    width: 350px;
+    background-color: rgb(175, 175, 175);
+    border-radius: 50px;
+    box-shadow: 5px 5px 15px 3px #111;
+    font-family: 'Oxygen';
+  } */
+
 
 dcontainerid {
 
