@@ -125,32 +125,41 @@ function evaluate() {
 
     numberStore2 = numberInput;
 
-
-if (operatorStore == "+") {
-
-
-    sum = Number(numberStore1) + Number(numberStore2);
-    display = Number(sum.toPrecision(12));
-}
-
-else if (operatorStore == "-") {
-
-    sum = Number(numberStore1) - Number(numberStore2);
-    display = Number(sum.toPrecision(12));
-}
-
-else if (operatorStore == "x") {
-    sum = Number(numberStore1) * Number(numberStore2);
-    display = Number(sum.toPrecision(12));
-}
-
-else if (operatorStore == "/") {
-    sum = Number(numberStore1) / Number(numberStore2);
-    display = Number(sum.toPrecision(12));
-}
+    if (numberInput = '.') {
+        display = "Josh made error"
+    }
 
 
-numberInput = display;
+    else if (operatorStore == "+") {
+
+
+        sum = Number(numberStore1) + Number(numberStore2);
+        display = Number(sum.toPrecision(12));
+    }
+
+    else if (operatorStore == "-") {
+
+        sum = Number(numberStore1) - Number(numberStore2);
+        display = Number(sum.toPrecision(12));
+    }
+
+    else if (operatorStore == "x") {
+        sum = Number(numberStore1) * Number(numberStore2);
+        display = Number(sum.toPrecision(12));
+    }
+
+    else if (operatorStore == "/") {
+        sum = Number(numberStore1) / Number(numberStore2);
+        display = Number(sum.toPrecision(12));
+    }
+
+
+
+
+
+
+
+    numberInput = display;
 
 }
 
