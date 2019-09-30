@@ -1,12 +1,20 @@
+var sum = 0;
+
+var display = 0;
+
+var numberInput = 0;
+
+var numberStore1 = 0;
+
+var numberStore2 = 0;
+
+var operatorStore = " ";
+
+var btnTextArray = ['C', ' ', ' ', '/', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', ' ', '='];
 
 
-var numberStore = 0;
 
-var calSum = 0;
-
-var btnTextArray = ['C', ' ', ' ', '/', '7', '8', '9', 'X', '4', '5', '6', '-', '1', '2', '3', '+', '0', ' ', ' ', '=']
-
-
+//UI 
 function calculator() {
     var displayContainer = document.createElement("div")
     displayContainer.id = 'dcontainerid';
@@ -18,8 +26,8 @@ function calculator() {
 
     var displayCol = document.createElement("div");
     displayCol.id = "dcolid";
-    displayRow.className = 'row';
-    displayCol.innerHTML = numberStore;
+    displayRow.className = 'col ml-5';
+    displayCol.innerHTML = display;
 
     var btnBody = document.createElement("div")
     btnBody.id = 'btnBodyid';
@@ -29,11 +37,15 @@ function calculator() {
     btnRow.id = 'btnRowid';
     btnRow.className = 'row justify-content-center d-flex flex-grow-1';
 
+
+
+    //setting up buttons and click function to control what happens on clicks
     var i = 0
     while (i < 20) {
         var btnText = document.createElement("div");
-        btnText.addEventListener('click', math);
-        btnText.id= btnTextArray[i];
+        btnText.addEventListener('click', clickEvent);
+        //creatina a button text array globally, and then setting the btn text to each index which runs through the loop.
+        btnText.id = btnTextArray[i];
         btnText.setAttribute('class', 'col-3 border display-4 justify-content-center');
         btnText.innerHTML = btnTextArray[i];
 
@@ -52,32 +64,125 @@ function calculator() {
 
 }
 
-function math(displayCol) {
 
-     numberStore = (this.id);
-
-     dcolid.innerHTML = numberStore;
-    console.log(numberStore);
-
-   
+//
+function clickEvent() {
+    //index of array 
+    keypressed = (this.id);
 
 
-    // for (i=0; i < btnTextArray.length; i++)
+    //cases for each type
+    switch (keypressed) {
+        //clears the display
+        case 'C':
 
+            operatorStore = " ";
+            numberStore1 = 0;
+            numberStore2 = 0;
+            display = 0;
+            sum = 0;
+            numberInput = 0;
+
+
+
+            break;
+        //
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+        case '.':
+
+
+            //if display shows 0 it gets rid of it
+            if (numberInput == 0) {
+
+                numberInput = " "
+
+
+            }
+
+            //then display is nothing plus the integer you select, and if not 0 keeps adding to display
+            numberInput += keypressed;
+
+            display = numberInput;
+
+
+            break;
+
+
+        case '+':
+        case '-':
+        case 'x':
+        case '/':
+
+
+            if(operatorStore != " ") {
+                evaluate()
+            }
+
+            //storing first integer into a new variable, and resetting display to 0.
+            numberStore1 = numberInput;
+
+            numberInput = 0;
+
+            operatorStore = keypressed;
+
+
+            break;
+
+        case '=':
+
+            evaluate();
+            break;
         
-
-
-
-    // console.log(Number(btnTextArray[13]) + Number(btnTextArray[13]));
-
-    // if (Number(btnTextArray[13]) + Number(btnTextArray[13]) == 4 ){
-
-    //     console.log('correctanswer')
-
     }
 
-   
+    //set innerhtml to display the numberstore string
+    dcolid.innerHTML = display;
 
+}
+
+function evaluate() {
+
+    numberStore2 = numberInput;
+
+    if (operatorStore == "+") {
+
+
+        sum = Number(numberStore1) + Number(numberStore2);
+        display = Number(sum.toPrecision(12));
+    }
+
+    else if( operatorStore == "-"){
+
+        sum = Number(numberStore1) - Number(numberStore2);
+        display = Number(sum.toPrecision(12));
+    }
+
+    else if( operatorStore == "x"){
+        sum = Number(numberStore1) * Number(numberStore2);
+        display = Number(sum.toPrecision(12));
+    }
+
+    else if( operatorStore == "/") {
+        sum = Number(numberStore1) / Number(numberStore2);
+        display = Number(sum.toPrecision(12));
+    }
+
+
+
+    numberInput = display;
+
+
+
+}
 
 
 
