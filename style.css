@@ -9,16 +9,14 @@ html, body {
     width:auto;
     background-color: blanchedalmond;
 
-    
-
 }
 
 
 
 #calcContainerId {
 
-    /* position: relative; */
-    /* margin: 8em auto; */
+    position: relative;
+    margin: 8em auto;
     padding: 1em 0;
     display: block-inline;
     width: 350px;
@@ -29,9 +27,7 @@ html, body {
   }
 
 
-.container {
-    height:200px
-}
+
 
 /* .calculator {
     position: relative;
@@ -46,7 +42,6 @@ html, body {
   } */
 
 
-dcontainerid {
 
 
 
