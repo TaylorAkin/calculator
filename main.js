@@ -85,7 +85,7 @@ function clickEvent() {
             break;
 
         case '+': case '-': case 'x': case '/':
-            // if a operator is hit and it isn't a emtpy string, which happens after first click, next click evaluates
+            // runs second. first time through operator is open. second time it's not.if a operator is hit and it isn't a emtpy string, which happens after first click, next click evaluates
             if (operatorStore != " ") {
                 evaluate()
             }
@@ -93,21 +93,25 @@ function clickEvent() {
             numberStore1 = numberInput;
             numberInput = 0;
             operatorStore = keypressed;
+            display = operatorStore;
+
             break;
 
         case '=':
             evaluate();
             break;
 
-        //set numbers to default. Default says other keyspressed=this.id not defined in cases, do this. 
+        // 1st.   MY NUMBERS CASE and decimal CASE. set numbers to default. Default says other keyspressed=this.id not defined in cases, do this. 
         default:
-            //if display shows 0 it gets rid of it
+            //if display shows 0 it gets rid of it when you press a number.
             if (numberInput == 0) {
                 numberInput = " "
             }
 
-            //then display is nothing plus the integer you select, and if not 0 keeps adding to display..999999
+            //then display is nothing plus the integer you select, and if not 0 keeps adding to display..999999.   2nd number to equate is reloaded into numberInput for numberStore2
             numberInput += keypressed;
+
+            //numberInput is display
             display = numberInput;
             break;
 
