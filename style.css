@@ -1,36 +1,55 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Sans+Mono|Pacifico|Oxygen);
+
+
+
 html, body {
 
-    height: auto;
-    width:60%;
-
-}
-
-.container {
-    height:200px
-}
-
-dcontainerid {
-
-    min-height: 30px;
-    height: 30px;
-}
-
-
-calbodyhtml {
-
-    min-height: 70%;
-    height: 70%;
+    height: 100vh;
+    width:auto;
+    background-color: blanchedalmond;
     
 
 }
 
-btnBodyid {
 
-    min-height: 70%;
-    height: 70%;
-    
+#calcContainerId {
 
+    /* position: relative; */
+    /* margin: 8em auto; */
+    padding: 1em 0;
+    display: block-inline;
+    width: 350px;
+    background-color: rgb(175, 175, 175);
+    border-radius: 50px;
+    box-shadow: 5px 5px 15px 3px #111;
+    font-family: 'Oxygen';
+  }
+
+
+#drowid {
+
+/* font-family: Droid Sans Mono;
+  display: table; */
+  /* width: 85%; */
+  background-color: rgb(5, 1, 1);
+  text-align: right;
+  font-size: 2em;
+  /* min-height: 1.2em; */
+  /* margin-left: 0.5em; */
+  /* padding-right: 0.5em; */
+  border: 1px solid #888;
+  color: rgb(255, 255, 255);
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
