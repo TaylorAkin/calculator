@@ -20,26 +20,23 @@ var btnTextArray = ['C', ' ', ' ', '/', '7', '8', '9', 'x', '4', '5', '6', '-', 
 
 //UI 
 function calculator() {
-    var displayContainer = document.createElement("div")
-    displayContainer.id = 'dcontainerid';
-    displayContainer.className = "container border";
 
     var displayRow = document.createElement("div");
     displayRow.id = 'drowid';
-    displayRow.className = 'row justify-content-center d-flex flex-grow-1';
+    displayRow.className = 'row justify-content-center';
 
     var displayCol = document.createElement("div");
     displayCol.id = "dcolid";
-    displayRow.className = 'col ml-5';
+    displayRow.className = 'col-9 ml-5 mt-5';
     displayCol.innerHTML = display;
 
-    var btnBody = document.createElement("div")
-    btnBody.id = 'btnBodyid';
-    btnBody.className = "container";
+    var calcContainer = document.createElement("div")
+    calcContainer.id = 'calcContainerId';
+    calcContainer.className = "container mt-5";
 
     var btnRow = document.createElement("div");
     btnRow.id = 'btnRowid';
-    btnRow.className = 'row justify-content-center d-flex flex-grow-1';
+    btnRow.className = 'row justify-content-center d-flex flex-grow-1 mx-3 my-3';
 
 
 
@@ -50,7 +47,7 @@ function calculator() {
         btnText.addEventListener('click', clickEvent);
         //creatina a button text array globally, and then setting the btn text to each index which runs through the loop.
         btnText.id = btnTextArray[i];
-        btnText.setAttribute('class', 'col-3 border display-4 justify-content-center');
+        btnText.setAttribute('class', 'col-3 border rounded-circle circle display-4');
         btnText.innerHTML = btnTextArray[i];
 
         // btnTextArray.push(0);
@@ -61,10 +58,9 @@ function calculator() {
     }
 
     displayRow.appendChild(displayCol);
-    displayContainer.appendChild(displayRow);
-    btnBody.appendChild(btnRow);
-    document.getElementById('calculatorhtml').appendChild(displayContainer);
-    document.getElementById('calculatorhtml').appendChild(btnBody);
+    calcContainer.appendChild(displayRow);
+    calcContainer.appendChild(btnRow);
+    document.getElementById('calculatorhtml').appendChild(calcContainer);
 
 }
 
