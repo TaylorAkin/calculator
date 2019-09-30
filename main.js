@@ -68,7 +68,6 @@ function calculator() {
 //
 function clickEvent() {
     //index of array set to a variable called keypressed
-
     keypressed = (this.id);
 
 
