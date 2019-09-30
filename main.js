@@ -105,7 +105,6 @@ function clickEvent() {
 
                 numberInput = " "
 
-
             }
 
             //then display is nothing plus the integer you select, and if not 0 keeps adding to display
@@ -123,7 +122,7 @@ function clickEvent() {
         case '/':
 
 
-            if(operatorStore != " ") {
+            if (operatorStore != " ") {
                 evaluate()
             }
 
@@ -141,7 +140,7 @@ function clickEvent() {
 
             evaluate();
             break;
-        
+
     }
 
     //set innerhtml to display the numberstore string
@@ -160,27 +159,24 @@ function evaluate() {
         display = Number(sum.toPrecision(12));
     }
 
-    else if( operatorStore == "-"){
+    else if (operatorStore == "-") {
 
         sum = Number(numberStore1) - Number(numberStore2);
         display = Number(sum.toPrecision(12));
     }
 
-    else if( operatorStore == "x"){
+    else if (operatorStore == "x") {
         sum = Number(numberStore1) * Number(numberStore2);
         display = Number(sum.toPrecision(12));
     }
 
-    else if( operatorStore == "/") {
+    else if (operatorStore == "/") {
         sum = Number(numberStore1) / Number(numberStore2);
         display = Number(sum.toPrecision(12));
     }
 
 
-
     numberInput = display;
-
-
 
 }
 
