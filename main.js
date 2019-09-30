@@ -1,13 +1,17 @@
 var sum = 0;
 
+//what's being displayed 
 var display = 0;
+
 
 var numberInput = 0;
 
+//display integer being transferred into a variable
 var numberStore1 = 0;
 
 var numberStore2 = 0;
 
+//variable to store operator
 var operatorStore = " ";
 
 var btnTextArray = ['C', ' ', ' ', '/', '7', '8', '9', 'x', '4', '5', '6', '-', '1', '2', '3', '+', '0', '.', ' ', '='];
@@ -67,7 +71,7 @@ function calculator() {
 
 //
 function clickEvent() {
-    //index of array 
+    //index of array set to a variable called keypressed
     keypressed = (this.id);
 
 
@@ -82,101 +86,71 @@ function clickEvent() {
             display = 0;
             sum = 0;
             numberInput = 0;
-
-
-
-            break;
-        //
-        case '0':
-        case '1':
-        case '2':
-        case '3':
-        case '4':
-        case '5':
-        case '6':
-        case '7':
-        case '8':
-        case '9':
-        case '.':
-
-
-            //if display shows 0 it gets rid of it
-            if (numberInput == 0) {
-
-                numberInput = " "
-
-            }
-
-            //then display is nothing plus the integer you select, and if not 0 keeps adding to display
-            numberInput += keypressed;
-
-            display = numberInput;
-
-
             break;
 
-
-        case '+':
-        case '-':
-        case 'x':
-        case '/':
-
-
+        case '+': case '-': case 'x': case '/':
+            // if a operator is hit and it isn't a emtpy string, which happens after first click, next click evaluates
             if (operatorStore != " ") {
                 evaluate()
             }
-
             //storing first integer into a new variable, and resetting display to 0.
             numberStore1 = numberInput;
-
             numberInput = 0;
-
             operatorStore = keypressed;
-
-
             break;
 
         case '=':
-
             evaluate();
+            break;
+
+        //set numbers to default. Default says other keyspressed=this.id not defined in cases, do this. 
+        default:
+            //if display shows 0 it gets rid of it
+            if (numberInput == 0) {
+                numberInput = " "
+            }
+
+            //then display is nothing plus the integer you select, and if not 0 keeps adding to display..999999
+            numberInput += keypressed;
+            display = numberInput;
             break;
 
     }
 
-    //set innerhtml to display the numberstore string
+    //set innerhtml to the display variable  
     dcolid.innerHTML = display;
-
 }
 
 function evaluate() {
 
     numberStore2 = numberInput;
 
-    if (operatorStore == "+") {
+
+if (operatorStore == "+") {
 
 
-        sum = Number(numberStore1) + Number(numberStore2);
-        display = Number(sum.toPrecision(12));
-    }
+    sum = Number(numberStore1) + Number(numberStore2);
+    display = Number(sum.toPrecision(12));
+}
 
-    else if (operatorStore == "-") {
+else if (operatorStore == "-") {
 
-        sum = Number(numberStore1) - Number(numberStore2);
-        display = Number(sum.toPrecision(12));
-    }
+    sum = Number(numberStore1) - Number(numberStore2);
+    display = Number(sum.toPrecision(12));
+}
 
-    else if (operatorStore == "x") {
-        sum = Number(numberStore1) * Number(numberStore2);
-        display = Number(sum.toPrecision(12));
-    }
+else if (operatorStore == "x") {
+    sum = Number(numberStore1) * Number(numberStore2);
+    display = Number(sum.toPrecision(12));
+}
 
-    else if (operatorStore == "/") {
-        sum = Number(numberStore1) / Number(numberStore2);
-        display = Number(sum.toPrecision(12));
-    }
+else if (operatorStore == "/") {
+    sum = Number(numberStore1) / Number(numberStore2);
+    display = Number(sum.toPrecision(12));
+}
 
 
-    numberInput = display;
+numberInput = display;
 
 }
 
